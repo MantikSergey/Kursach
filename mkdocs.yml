@@ -1,0 +1,14 @@
+site_name: "Boos of the gym"
+
+theme:
+  name: "material"
+
+plugins:
+- search
+- mkdocstrings
+
+nav:
+- index.md
+- train.md
+- user.md
+- controller.md
