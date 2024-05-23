@@ -4,3 +4,4 @@ mkdocs==1.6.0
 pytest
 mkdocstrings[python]
 mkdocs-material
+cryptography
