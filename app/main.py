@@ -58,9 +58,9 @@ async def auth(credentials: Credentials):
         raise credentials_exception
     if user.password != credentials.password:
         raise credentials_exception
-    cookie = CONTROLLER.create_auth_cookie(user).decode()
+    cookie = CONTROLLER.create_auth_cookie(user).decode('utf-8')
     response = Response()
-    response.set_cookie(key='authorization', value=cookie, httponly=True, samesite="none")
+    response.set_cookie(key='authorization', value=cookie, httponly=True)
     return response
 
 

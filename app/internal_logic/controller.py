@@ -13,7 +13,6 @@ class Controller:
         """
         self.users = {user.card_id: user for user in users}
         key = fernet.Fernet.generate_key()
-        key = 'C8BN1o7vODv7o16T_fdSS8zUSZXTHrMrv-Z3ZyiRzRA='
         self.crypter = fernet.Fernet(key)
         
     def decrypt_auth_cookie(self, auth: str):
@@ -21,8 +20,8 @@ class Controller:
 
         :param auth: куки
         """
-        res = self.crypter.decrypt(auth.encode())
-        data = json.loads(res.decode())
+        res = self.crypter.decrypt(auth.encode('utf-8'))
+        data = json.loads(res.decode('utf-8'))
         return data['user_id']
     
     def create_auth_cookie(self, user: User):
@@ -31,7 +30,7 @@ class Controller:
         :param user: объект юзера
         :return: куки в байтах
         """
-        res = self.crypter.encrypt(json.dumps({'user_id': user.card_id}).encode())
+        res = self.crypter.encrypt(json.dumps({'user_id': user.card_id}).encode('utf-8'))
         return res
     
     def get_user(self, card_id: int):

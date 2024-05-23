@@ -25,8 +25,8 @@ def train(request):
 @pytest.fixture
 def controller_cookie(request):
     controller = Controller()
-    data = json.dumps({'user_id': 1}).encode()
-    cookie = controller.crypter.encrypt(data).decode()
+    data = json.dumps({'user_id': 1}).encode('utf-8')
+    cookie = controller.crypter.encrypt(data).decode('utf-8')
     return controller, cookie
 
 class TestController:
