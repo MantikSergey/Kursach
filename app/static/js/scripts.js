@@ -25,31 +25,6 @@ function create_html_toast(title, message, time, level) {
             </div>`
 };
 
-function create_modal(element_id, title, content, ok_text, ok_func) {
-    var modal_elem = document.getElementById(element_id)
-    modal_elem.innerHTML = `<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">${title}</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    ${content}
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">${ok_text}</button>
-                </div>
-            </div>
-        </div>
-    </div>`
-    var modal = new bootstrap.Modal(modal_elem.children[0])
-    var ok_button_elem = modal_elem.getElementsByClassName('btn btn-primary')[0]
-    ok_button_elem.onclick = function () { ok_func(); modal.hide() }
-    return modal
-};
-
 function create_table(headers, rows) {
     let table = `
         <table class="table table-striped" id = "myTable">
