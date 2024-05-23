@@ -37,13 +37,13 @@ TRAINS_DATA = TrainsData(headers=[
     [i.title, i.time, i.location, i.trainer, i.capacity, i.age_limit, i.class_type] for i in TRAINS
 ])
 
-with open(currnet_path / Path('pages/auth.html')) as f:
+with open(currnet_path / Path('pages/auth.html'), encoding='utf8') as f:
     AUTH_PAGE = HTMLResponse(f.read())
     
-with open(currnet_path / Path('pages/trains.html')) as f:
+with open(currnet_path / Path('pages/trains.html'), encoding='utf8') as f:
     TRAINS_PAGE = HTMLResponse(f.read())
     
-with open(currnet_path / Path('pages/my_trains.html')) as f:
+with open(currnet_path / Path('pages/my_trains.html'), encoding='utf8') as f:
     MY_TRAINS_PAGE = HTMLResponse(f.read())
 
 @app.get("/")
